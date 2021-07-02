@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net5.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Annotations.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Adress_TestWork.sln.DotSettings" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Models\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resource\Localize.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Localize.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resource\Localize.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>Localize.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+</Project>
