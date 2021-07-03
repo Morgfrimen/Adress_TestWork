@@ -10,6 +10,7 @@ using Adress_TestWork.Resource;
 using Adress_TestWork.ViewModels;
 
 using LoadData;
+using LoadData.LoadLogical;
 
 using Microsoft.Win32;
 
@@ -56,9 +57,10 @@ namespace Adress_TestWork.View
 
             try
             {
-                var loadData = LoadCore.GetLoadXML();
+                ILoadData loadData = LoadCore.GetLoadXML();
                 loadData.SetIgnoreProperty(nameof(AddressUser.Error));
-                _vm.AddressUsers = new(loadData.LoadFile<ObservableCollection<AddressUser>,AddressUser>(path));
+                _vm.AddressUsers =
+                    new(loadData.LoadFile<ObservableCollection<AddressUser>, AddressUser>(path));
             }
             catch (FileNotFoundException)
             {
@@ -90,14 +92,6 @@ namespace Adress_TestWork.View
             }
         }
 
-        private const string Filter = @"XML File(*.xml)|*.xml";
-
-        public MainWindow()
-        {
-            InitializeComponent();
-            _vm = DataContext as MainWindowViewModels ?? throw new();
-        }
-
         private void Command_SaveXml(object sender, ExecutedRoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new();
@@ -110,17 +104,28 @@ namespace Adress_TestWork.View
 
             try
             {
-                SaveCore.GetSaveDataXml().SaveDataXml<ObservableCollection<AddressUser>,AddressUser>(_vm.AddressUsers,path,nameof(AddressUser.Error));
+                SaveCore.GetSaveDataXml()
+                     .SaveDataXml<ObservableCollection<AddressUser>, AddressUser>
+                             (_vm.AddressUsers, path, nameof(AddressUser.Error));
             }
             catch (InvalidOperationException exception)
             {
-                MessageBox.Show(exception.Message+Environment.NewLine+exception.InnerException.Message);
+                MessageBox.Show
+                    (exception.Message + Environment.NewLine + exception.InnerException.Message);
                 MessageBox.Show
                 (
                     this, Localize.FileNotFound, string.Empty, MessageBoxButton.OK,
                     MessageBoxImage.Error
                 );
             }
+        }
+
+        private const string Filter = @"XML File(*.xml)|*.xml";
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            _vm = DataContext as MainWindowViewModels ?? throw new();
         }
     }
 }

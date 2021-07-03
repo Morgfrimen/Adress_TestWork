@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace LoadData.LoadLogical
+﻿namespace LoadData.LoadLogical
 {
     public interface ILoadData
     {
-        public ST LoadFile<ST,T>(string path)
+        public ST LoadFile<ST, T>(string path)
             where T : class, new()
             where ST : class, new();
 

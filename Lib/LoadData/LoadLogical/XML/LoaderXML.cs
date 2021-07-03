@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -8,8 +6,6 @@ namespace LoadData.LoadLogical.XML
 {
     internal sealed class LoaderXML : ILoadData
     {
-#region Implemented
-
 #region Implementation of ILoad
 
         /// <summary>
@@ -19,7 +15,7 @@ namespace LoadData.LoadLogical.XML
         /// <param name="path">Путь к файлу</param>
         /// <returns>Список данных или null</returns>
         /// <exception cref="FileNotFoundException">Если файл не найден</exception>
-        public ST LoadFile<ST,T>(string path)
+        public ST LoadFile<ST, T>(string path)
             where T : class, new()
             where ST : class, new()
         {
@@ -27,19 +23,17 @@ namespace LoadData.LoadLogical.XML
             {
                 XmlAttributeOverrides overrides = new();
                 XmlAttributes attributes = new();
+
                 if (_ignoreProperty is not null)
                 {
                     attributes.XmlIgnore = true;
-
-                    foreach (string s in _ignoreProperty)
-                    {
-                        overrides.Add(typeof(T), s, attributes);
-                    }
+                    foreach (string s in _ignoreProperty) overrides.Add(typeof(T), s, attributes);
                 }
+
                 XmlSerializer xmlSerializer = new(typeof(ST), overrides);
+
                 using (FileStream fileStream = new(path, FileMode.Open))
                 {
-
                     ST model = default;
 
                     try
@@ -59,10 +53,10 @@ namespace LoadData.LoadLogical.XML
         }
 
         private string[] _ignoreProperty;
-        /// <inheritdoc />
-        public void SetIgnoreProperty(params string[] ignoreProperty) => _ignoreProperty = ignoreProperty;
 
-#endregion
+        /// <inheritdoc />
+        public void SetIgnoreProperty(params string[] ignoreProperty) =>
+            _ignoreProperty = ignoreProperty;
 
 #endregion
     }

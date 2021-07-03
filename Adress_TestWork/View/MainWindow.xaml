@@ -120,7 +120,7 @@
                 <CommandBinding Command="{x:Static view:MainWindow.LoadData}"
                                 Executed="Command_LoadXML" />
                 <CommandBinding Command="{x:Static view:MainWindow.SaveData}"
-                                Executed="Command_SaveXml"/>
+                                Executed="Command_SaveXml" />
             </UniformGrid.CommandBindings>
             <Button Content="{x:Static resource:Localize.AddUserRecord}"
                     Command="New" />
@@ -128,9 +128,9 @@
                     Command="Delete"
                     CommandParameter="{Binding ElementName=DataGrid_MW,Path=SelectedItem}" />
             <Button Content="{x:Static resource:Localize.SaveXMLData}"
-                    Command="{x:Static view:MainWindow.SaveData}"/>
+                    Command="{x:Static view:MainWindow.SaveData}" />
             <Button Content="{x:Static resource:Localize.LoadXMLData}"
-                    Command="{x:Static view:MainWindow.LoadData}"/>
+                    Command="{x:Static view:MainWindow.LoadData}" />
         </UniformGrid>
 
     </Grid>
