@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:resource="clr-namespace:Adress_TestWork.Resource"
         xmlns:viewModels="clr-namespace:Adress_TestWork.ViewModels"
+        xmlns:view="clr-namespace:Adress_TestWork.View"
         mc:Ignorable="d"
         Title="AddressBook"
         MinHeight="450"
@@ -116,6 +117,8 @@
                                 Executed="Command_Delete" />
                 <CommandBinding Command="New"
                                 Executed="Command_New" />
+                <CommandBinding Command="{x:Static view:MainWindow.Load}"
+                                Executed="Command_LoadXML"/>
             </UniformGrid.CommandBindings>
             <Button Content="{x:Static resource:Localize.AddUserRecord}"
                     Command="New" />

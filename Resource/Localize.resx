@@ -132,6 +132,9 @@
   <data name="ErrorTelephoneNumber" xml:space="preserve">
     <value>Телефон должен соответсвовать формату +7-XXX-XXX-XX-XX</value>
   </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>Файл с данными не найден</value>
+  </data>
   <data name="FirstName" xml:space="preserve">
     <value>Имя</value>
   </data>

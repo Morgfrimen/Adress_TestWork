@@ -18,13 +18,6 @@ namespace Adress_TestWork.ViewModels
             }
         }
 
-        public MainWindowViewModels() => _addressUsers = new()
-        {
-            new()
-            {
-                Id = 1, FirstName = "Михаил", SecondName = "Гринёв", TreeName = "Васильевич",
-                Telephone = "+7-999-902-00-22"
-            }
-        };
+        public MainWindowViewModels(){}
     }
 }

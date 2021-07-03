@@ -106,6 +106,15 @@ namespace Adress_TestWork.Resource {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Файл с данными не найден.
+        /// </summary>
+        public static string FileNotFound {
+            get {
+                return ResourceManager.GetString("FileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Имя.
         /// </summary>
         public static string FirstName {

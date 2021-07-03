@@ -4,6 +4,12 @@
 		<OutputType>WinExe</OutputType>
 		<TargetFramework>net5.0-windows</TargetFramework>
 		<UseWPF>true</UseWPF>
+		<Authors>MorgFrimen</Authors>
+		<Product>TestWork-AdressBook</Product>
+		<Description>Телефонная книга</Description>
+		<RepositoryType>https://github.com/Morgfrimen/Adress_TestWork</RepositoryType>
+		<AssemblyVersion>0.0.0.1</AssemblyVersion>
+		<NeutralLanguage>ru</NeutralLanguage>
 	</PropertyGroup>
 
 	<ItemGroup>
