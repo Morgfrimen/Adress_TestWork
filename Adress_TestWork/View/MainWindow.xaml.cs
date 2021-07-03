@@ -23,16 +23,9 @@ namespace Adress_TestWork.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string Filter = @"XML File(*.xml)|*.xml";
         private readonly MainWindowViewModels _vm;
         public static readonly RoutedCommand LoadData = new();
         public static readonly RoutedCommand SaveData = new();
-
-        public MainWindow()
-        {
-            InitializeComponent();
-            _vm = DataContext as MainWindowViewModels ?? throw new();
-        }
 
         private void Command_Delete(object sender, ExecutedRoutedEventArgs e)
         {
@@ -133,6 +126,14 @@ namespace Adress_TestWork.View
                     MessageBoxImage.Error
                 );
             }
+        }
+
+        private const string Filter = @"XML File(*.xml)|*.xml";
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            _vm = DataContext as MainWindowViewModels ?? throw new();
         }
     }
 }
