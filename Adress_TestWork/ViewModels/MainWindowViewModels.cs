@@ -6,7 +6,7 @@ namespace Adress_TestWork.ViewModels
 {
     public sealed class MainWindowViewModels : ViewModelsBase
     {
-        private readonly ObservableCollection<AddressUser> _addressUsers;
+        private readonly ObservableCollection<AddressUser> _addressUsers = new();
 
         public ObservableCollection<AddressUser> AddressUsers
         {

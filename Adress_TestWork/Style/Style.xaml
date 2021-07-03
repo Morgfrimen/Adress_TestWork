@@ -22,19 +22,8 @@
                 Value="Center" />
         <Setter Property="IsEnabled"
                 Value="True" />
-        <!--<Style.Triggers>
-            <Trigger Property="Validation.HasError" Value="True">
-                <Setter Property="Background"
-                        Value="Red" />
-            </Trigger>
-            <Trigger Property="Validation.HasError" Value="False">
-                <Setter Property="Background"
-                        Value="Transparent" />
-            </Trigger>
-        </Style.Triggers>-->
     </Style>
-
-    <!--Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content.Text, Mode=TwoWay}"-->
+    
     <!-- ReSharper disable once InconsistentNaming -->
     <Style TargetType="TextBox" x:Key="StyleTextBox">
         <EventSetter Event="Loaded" Handler="EventSetter_OnHandler" />
@@ -74,27 +63,6 @@
                     </Setter.Value>
                 </Setter>
             </Trigger>
-            <!--<Trigger Property="IsEditing" Value="False">
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="DataGridCell">
-                            <TextBlock Style="{StaticResource CellTemplate}">
-                                <TextBlock.Text>
-                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
-                                             Path="Content.Text"
-                                             Mode="TwoWay"
-                                             NotifyOnValidationError="True">
-                                        <Binding.ValidationRules>
-                                            <DataErrorValidationRule ValidationStep="UpdatedValue"
-                                                                     ValidatesOnTargetUpdated="True" />
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBlock.Text>
-                            </TextBlock>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Trigger>-->
             <Trigger Property="Validation.HasError" Value="True">
                 <Setter Property="BorderBrush"
                         Value="Red" />
@@ -125,6 +93,15 @@
            x:Key="Header">
         <Setter Property="HorizontalContentAlignment"
                 Value="Center" />
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Text="{TemplateBinding Content }"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 </ResourceDictionary>

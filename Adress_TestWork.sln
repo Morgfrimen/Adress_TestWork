@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.223
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adress_TestWork", "Adress_TestWork.csproj", "{5AD396B5-B1AB-47D8-9A97-05402B074C2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adress_TestWork", "Adress_TestWork\Adress_TestWork.csproj", "{5AD396B5-B1AB-47D8-9A97-05402B074C2E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadData", "Lib\LoadData\LoadData.csproj", "{7B7B17CA-C15C-424E-A3E7-F1FA0CEB8687}"
 EndProject

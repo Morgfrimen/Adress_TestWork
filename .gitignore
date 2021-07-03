@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs/Adress_TestWork
+/Lib/LoadData/bin/Debug/net5.0
+/Lib/LoadData/obj/Debug/net5.0
+/Lib/LoadData/obj
+/Adress_TestWork/bin/Debug/net5.0-windows
+/Adress_TestWork/obj
+/Adress_TestWork/Adress_TestWork.csproj.user

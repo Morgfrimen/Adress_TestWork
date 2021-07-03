@@ -27,6 +27,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Lib\LoadData\LoadData.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Compile Update="Resource\Localize.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>

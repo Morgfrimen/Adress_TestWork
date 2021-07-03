@@ -19,7 +19,7 @@ namespace Adress_TestWork.View
     public partial class MainWindow : Window
     {
         private readonly MainWindowViewModels _vm;
-        internal static RoutedCommand Load = new();
+        public static readonly RoutedCommand Load = new();
 
         private void Command_Delete(object sender, ExecutedRoutedEventArgs e)
         {
@@ -65,7 +65,7 @@ namespace Adress_TestWork.View
 
         private void Command_New(object sender, ExecutedRoutedEventArgs e)
         {
-            if (_vm is not null)
+            if (_vm is not null && _vm.AddressUsers is not null)
             {
                 AddressUser? lastItem = _vm.AddressUsers.LastOrDefault();
                 if (lastItem is null)
