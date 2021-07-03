@@ -16,8 +16,8 @@ namespace Adress_TestWork.Models
         private string NamesValidationError(string value)
         {
             if (value is null) return string.Empty;
-            if (value.Length is < MinLengthString or > MaxLengthString && Regex.IsMatch
-                    (value, @"\d", RegexOptions.Compiled))
+            if (value.Length is < MinLengthString or > MaxLengthString || Regex.IsMatch
+                    (value, @"\d+", RegexOptions.Compiled))
                 return Localize.ErrorName;
 
             return string.Empty;
