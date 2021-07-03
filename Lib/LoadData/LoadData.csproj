@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <BaseIntermediateOutputPath>B:\ПроггнозыТест\Adress_TestWork\Lib\OBJ</BaseIntermediateOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
