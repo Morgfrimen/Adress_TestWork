@@ -5,6 +5,7 @@ namespace LoadData
 {
     public static class LoadCore
     {
-        public static ILoad GetLoadXML() => new LoaderXML();
+        private static LoaderXML _loaderXml;
+        public static ILoadData GetLoadXML() => _loaderXml ??= new();
     }
 }

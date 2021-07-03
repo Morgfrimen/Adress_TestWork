@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -11,6 +13,8 @@ using LoadData;
 
 using Microsoft.Win32;
 
+using SaveData;
+
 namespace Adress_TestWork.View
 {
     /// <summary>
@@ -19,7 +23,8 @@ namespace Adress_TestWork.View
     public partial class MainWindow : Window
     {
         private readonly MainWindowViewModels _vm;
-        public static readonly RoutedCommand Load = new();
+        public static readonly RoutedCommand LoadData = new();
+        public static readonly RoutedCommand SaveData = new();
 
         private void Command_Delete(object sender, ExecutedRoutedEventArgs e)
         {
@@ -51,7 +56,9 @@ namespace Adress_TestWork.View
 
             try
             {
-                _vm.AddressUsers = new(LoadCore.GetLoadXML().LoadFile<AddressUser>(path));
+                var loadData = LoadCore.GetLoadXML();
+                loadData.SetIgnoreProperty(nameof(AddressUser.Error));
+                _vm.AddressUsers = new(loadData.LoadFile<ObservableCollection<AddressUser>,AddressUser>(path));
             }
             catch (FileNotFoundException)
             {
@@ -89,6 +96,31 @@ namespace Adress_TestWork.View
         {
             InitializeComponent();
             _vm = DataContext as MainWindowViewModels ?? throw new();
+        }
+
+        private void Command_SaveXml(object sender, ExecutedRoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new();
+            saveFileDialog.Filter = Filter;
+            saveFileDialog.InitialDirectory = Environment.CurrentDirectory;
+
+            if (saveFileDialog.ShowDialog() is false) return;
+
+            string path = saveFileDialog.FileName;
+
+            try
+            {
+                SaveCore.GetSaveDataXml().SaveDataXml<ObservableCollection<AddressUser>,AddressUser>(_vm.AddressUsers,path,nameof(AddressUser.Error));
+            }
+            catch (InvalidOperationException exception)
+            {
+                MessageBox.Show(exception.Message+Environment.NewLine+exception.InnerException.Message);
+                MessageBox.Show
+                (
+                    this, Localize.FileNotFound, string.Empty, MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
+            }
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Serialization;
 
 namespace LoadData.LoadLogical.XML
 {
-    internal sealed class LoaderXML : ILoad
+    internal sealed class LoaderXML : ILoadData
     {
 #region Implemented
 
@@ -18,18 +19,32 @@ namespace LoadData.LoadLogical.XML
         /// <param name="path">Путь к файлу</param>
         /// <returns>Список данных или null</returns>
         /// <exception cref="FileNotFoundException">Если файл не найден</exception>
-        public IList<T> LoadFile<T>(string path)
+        public ST LoadFile<ST,T>(string path)
             where T : class, new()
+            where ST : class, new()
         {
             if (path is not null && File.Exists(path))
+            {
+                XmlAttributeOverrides overrides = new();
+                XmlAttributes attributes = new();
+                if (_ignoreProperty is not null)
+                {
+                    attributes.XmlIgnore = true;
+
+                    foreach (string s in _ignoreProperty)
+                    {
+                        overrides.Add(typeof(T), s, attributes);
+                    }
+                }
+                XmlSerializer xmlSerializer = new(typeof(ST), overrides);
                 using (FileStream fileStream = new(path, FileMode.Open))
                 {
-                    XmlSerializer xmlSerializer = new(typeof(T));
-                    T[] model = default;
+
+                    ST model = default;
 
                     try
                     {
-                        model = (T[]) xmlSerializer.Deserialize(fileStream);
+                        model = (ST) xmlSerializer.Deserialize(fileStream);
                     }
                     catch (Exception e)
                     {
@@ -38,9 +53,14 @@ namespace LoadData.LoadLogical.XML
 
                     return model;
                 }
+            }
 
             throw new FileNotFoundException();
         }
+
+        private string[] _ignoreProperty;
+        /// <inheritdoc />
+        public void SetIgnoreProperty(params string[] ignoreProperty) => _ignoreProperty = ignoreProperty;
 
 #endregion
 
