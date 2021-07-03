@@ -19,7 +19,6 @@ namespace SaveData.SaveLogical.SaveXML
 			XmlAttributeOverrides overrides = new();
 			XmlAttributes attributes = new();
 			attributes.XmlIgnore = true;
-			attributes.XmlDefaultValue = "<Not data>";
 			foreach (string s in ignoreProperty) overrides.Add(typeof(T), s, attributes);
 			XmlSerializer xmlSerializer = new(typeof(ST), overrides);
 			using (FileStream fileStream = new(path, FileMode.OpenOrCreate))

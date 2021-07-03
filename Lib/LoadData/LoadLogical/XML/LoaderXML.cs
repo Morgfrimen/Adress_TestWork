@@ -27,7 +27,6 @@ namespace LoadData.LoadLogical.XML
 				if (_ignoreProperty is not null)
 				{
 					attributes.XmlIgnore = true;
-					attributes.XmlDefaultValue = "<Not data>";
 					foreach (string s in _ignoreProperty) overrides.Add(typeof(T), s, attributes);
 				}
 
