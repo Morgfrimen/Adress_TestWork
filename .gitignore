@@ -12,3 +12,6 @@
 /Lib/SaveData/bin/Debug/net5.0
 /Lib/SaveData/obj
 /.vs
+/Adress_TestWork/bin
+/Lib/LoadData/bin
+/Lib/SaveData/bin
