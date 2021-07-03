@@ -17,7 +17,5 @@ namespace Adress_TestWork.ViewModels
                 OnPropertyChanged(nameof(AddressUsers));
             }
         }
-
-        public MainWindowViewModels(){}
     }
 }

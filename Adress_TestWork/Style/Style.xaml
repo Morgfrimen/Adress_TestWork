@@ -23,7 +23,7 @@
         <Setter Property="IsEnabled"
                 Value="True" />
     </Style>
-    
+
     <!-- ReSharper disable once InconsistentNaming -->
     <Style TargetType="TextBox" x:Key="StyleTextBox">
         <EventSetter Event="Loaded" Handler="EventSetter_OnHandler" />

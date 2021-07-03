@@ -4,6 +4,7 @@ namespace LoadData.LoadLogical
 {
     public interface ILoad
     {
-        public IList<T> LoadFile<T>(string path) where T : class,new();
+        public IList<T> LoadFile<T>(string path)
+            where T : class, new();
     }
 }

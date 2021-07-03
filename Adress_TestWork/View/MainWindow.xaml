@@ -118,7 +118,7 @@
                 <CommandBinding Command="New"
                                 Executed="Command_New" />
                 <CommandBinding Command="{x:Static view:MainWindow.Load}"
-                                Executed="Command_LoadXML"/>
+                                Executed="Command_LoadXML" />
             </UniformGrid.CommandBindings>
             <Button Content="{x:Static resource:Localize.AddUserRecord}"
                     Command="New" />

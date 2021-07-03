@@ -7,10 +7,12 @@ namespace LoadData.LoadLogical.XML
 {
     internal sealed class LoaderXML : ILoad
     {
+#region Implemented
+
 #region Implementation of ILoad
 
         /// <summary>
-        /// Загружает XML файл
+        ///     Загружает XML файл
         /// </summary>
         /// <typeparam name="T">Тип модели</typeparam>
         /// <param name="path">Путь к файлу</param>
@@ -20,10 +22,9 @@ namespace LoadData.LoadLogical.XML
             where T : class, new()
         {
             if (path is not null && File.Exists(path))
-            {
-                using (FileStream fileStream = new FileStream(path, FileMode.Open))
+                using (FileStream fileStream = new(path, FileMode.Open))
                 {
-                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
+                    XmlSerializer xmlSerializer = new(typeof(T));
                     T[] model = default;
 
                     try
@@ -37,10 +38,11 @@ namespace LoadData.LoadLogical.XML
 
                     return model;
                 }
-            }
 
             throw new FileNotFoundException();
         }
+
+#endregion
 
 #endregion
     }

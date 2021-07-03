@@ -13,13 +13,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Annotations.cs" />
+		<Compile Remove="Annotations.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove=".gitattributes" />
-	  <None Remove=".gitignore" />
-	  <None Remove="Adress_TestWork.sln.DotSettings" />
+		<None Remove=".gitattributes" />
+		<None Remove=".gitignore" />
+		<None Remove="Adress_TestWork.sln.DotSettings" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -27,7 +27,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Lib\LoadData\LoadData.csproj" />
+		<ProjectReference Include="..\Lib\LoadData\LoadData.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
