@@ -5,13 +5,48 @@
     <Style TargetType="Button"
            x:Key="UC_AddAndDelete_Button">
         <Setter Property="HorizontalContentAlignment"
-                Value="Center" />
+                Value="Stretch" />
         <Setter Property="Margin"
                 Value="10,5" />
         <Setter Property="HorizontalAlignment"
                 Value="Stretch" />
         <Setter Property="MinWidth"
                 Value="70" />
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="BorderThickness"
+                Value="0"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border BorderThickness="1.5"
+                            BorderBrush="Black">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Style.Triggers>
+                                    <Trigger Property="IsFocused" Value="False">
+                                        <Setter Property="Background"
+                                                Value="Transparent" />
+                                    </Trigger>
+                                    <Trigger Property="IsFocused" Value="True">
+                                        <Setter Property="Background"
+                                                Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <Viewbox>
+                            <TextBlock Text="{TemplateBinding Content}"
+                                       TextAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Padding="5,10"
+                                       TextWrapping="Wrap"/>
+                        </Viewbox>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style TargetType="TextBlock"
@@ -66,6 +101,8 @@
             <Trigger Property="Validation.HasError" Value="True">
                 <Setter Property="BorderBrush"
                         Value="Red" />
+                <Setter Property="Margin"
+                        Value="0,2"/>
                 <Setter Property="BorderThickness"
                         Value="5" />
             </Trigger>

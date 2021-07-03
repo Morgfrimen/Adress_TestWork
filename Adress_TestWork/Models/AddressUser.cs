@@ -26,8 +26,7 @@ namespace Adress_TestWork.Models
 
 		private string NamesValidationError(string value)
 		{
-			if (value is null) return string.Empty;
-			if (value.Length is < MinLengthString or > MaxLengthString || Regex.IsMatch
+			if (value is null || value.Length is < MinLengthString or > MaxLengthString || Regex.IsMatch
 					(value, @"\d+", RegexOptions.Compiled))
 				return Localize.ErrorName;
 
@@ -36,8 +35,7 @@ namespace Adress_TestWork.Models
 
 		private string TelephoneValidationError(string value)
 		{
-			if (value is null) return string.Empty;
-			if (!Regex.IsMatch
+			if (value is null || !Regex.IsMatch
 				(
 					value, @"\+7-\d{3}-\d{3}-\d{2}-\d{2}",
 					RegexOptions.Compiled | RegexOptions.IgnoreCase

@@ -77,6 +77,14 @@ namespace Adress_TestWork.View
                     MessageBoxImage.Error
                 );
             }
+            catch (ArgumentNullException exception)
+            {
+                MessageBox.Show
+                (
+                    this, exception.Message, string.Empty, MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
+            }
         }
 
         private void Command_New(object sender, ExecutedRoutedEventArgs e)
