@@ -117,11 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddUserRecord" xml:space="preserve">
+    <value>Добавить запись</value>
+  </data>
+  <data name="DeleteUserRecord" xml:space="preserve">
+    <value>Удалить запись</value>
+  </data>
+  <data name="ErrorCommandButton" xml:space="preserve">
+    <value>Операция невозможна</value>
+  </data>
+  <data name="ErrorName" xml:space="preserve">
+    <value>Ошибка ввода имени (недолжно быть цифр и длина должена быть от 2 до 50 символов)</value>
+  </data>
+  <data name="ErrorTelephoneNumber" xml:space="preserve">
+    <value>Телефон должен соответсвовать формату +7-XXX-XXX-XX-XX</value>
+  </data>
   <data name="FirstName" xml:space="preserve">
     <value>Имя</value>
   </data>
   <data name="Id" xml:space="preserve">
     <value>Номер пользователя</value>
+  </data>
+  <data name="LoadXMLData" xml:space="preserve">
+    <value>Загрузить из XML</value>
+  </data>
+  <data name="SaveXMLData" xml:space="preserve">
+    <value>Сохранить в XML</value>
   </data>
   <data name="SecondName" xml:space="preserve">
     <value>Фамилия</value>

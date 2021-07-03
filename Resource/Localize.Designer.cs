@@ -61,6 +61,51 @@ namespace Adress_TestWork.Resource {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавить запись.
+        /// </summary>
+        public static string AddUserRecord {
+            get {
+                return ResourceManager.GetString("AddUserRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить запись.
+        /// </summary>
+        public static string DeleteUserRecord {
+            get {
+                return ResourceManager.GetString("DeleteUserRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Операция невозможна.
+        /// </summary>
+        public static string ErrorCommandButton {
+            get {
+                return ResourceManager.GetString("ErrorCommandButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка ввода имени (недолжно быть цифр и длина должена быть от 2 до 50 символов).
+        /// </summary>
+        public static string ErrorName {
+            get {
+                return ResourceManager.GetString("ErrorName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Телефон должен соответсвовать формату +7-XXX-XXX-XX-XX.
+        /// </summary>
+        public static string ErrorTelephoneNumber {
+            get {
+                return ResourceManager.GetString("ErrorTelephoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Имя.
         /// </summary>
         public static string FirstName {
@@ -75,6 +120,24 @@ namespace Adress_TestWork.Resource {
         public static string Id {
             get {
                 return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Загрузить из XML.
+        /// </summary>
+        public static string LoadXMLData {
+            get {
+                return ResourceManager.GetString("LoadXMLData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сохранить в XML.
+        /// </summary>
+        public static string SaveXMLData {
+            get {
+                return ResourceManager.GetString("SaveXMLData", resourceCulture);
             }
         }
         

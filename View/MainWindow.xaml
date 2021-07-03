@@ -117,13 +117,13 @@
                 <CommandBinding Command="New"
                                 Executed="Command_New" />
             </UniformGrid.CommandBindings>
-            <Button Content="Добавить запись"
+            <Button Content="{x:Static resource:Localize.AddUserRecord}"
                     Command="New" />
-            <Button Content="Удалить запись"
+            <Button Content="{x:Static resource:Localize.DeleteUserRecord}"
                     Command="Delete"
                     CommandParameter="{Binding ElementName=DataGrid_MW,Path=SelectedItem}" />
-            <Button Content="Сохранить в XML" />
-            <Button Content="Загрузить из XML" />
+            <Button Content="{x:Static resource:Localize.SaveXMLData}" />
+            <Button Content="{x:Static resource:Localize.LoadXMLData}" />
         </UniformGrid>
 
     </Grid>

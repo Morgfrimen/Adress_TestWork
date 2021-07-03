@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Text.RegularExpressions;
 
+using Adress_TestWork.Resource;
+
 namespace Adress_TestWork.Models
 {
     public sealed class AddressUser : IDataErrorInfo
@@ -11,13 +13,12 @@ namespace Adress_TestWork.Models
         public string Telephone { get; set; }
         public string TreeName { get; set; }
 
-        //TODO:Resourse string value
         private string NamesValidationError(string value)
         {
             if (value is null) return string.Empty;
-            if (value.Length is < MinLengthString or > MaxLengthString)
-                return
-                    $"Имя или фамилия должны  быть больше {MinLengthString} и меньше {MaxLengthString}";
+            if (value.Length is < MinLengthString or > MaxLengthString && Regex.IsMatch
+                    (value, @"\d", RegexOptions.Compiled))
+                return Localize.ErrorName;
 
             return string.Empty;
         }
@@ -30,7 +31,7 @@ namespace Adress_TestWork.Models
                     value, @"\+7-\d{3}-\d{3}-\d{2}-\d{2}",
                     RegexOptions.Compiled | RegexOptions.IgnoreCase
                 ))
-                return "Номер не корректный";
+                return Localize.ErrorTelephoneNumber;
 
             return string.Empty;
         }
